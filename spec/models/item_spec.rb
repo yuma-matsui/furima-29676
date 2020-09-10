@@ -36,33 +36,33 @@ RSpec.describe Item, type: :model do
       end
    
       it 'category_idが空の場合' do
-        @item.category_id = nil
+        @item.category_id = "1"
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category can't be blank")
+        expect(@item.errors.full_messages).to include("Category must be other than 1")
       end
    
       it 'status_idが空の場合' do
-        @item.status_id = nil
+        @item.status_id = "1"
         @item.valid?
-        expect(@item.errors.full_messages).to include("Status can't be blank")
+        expect(@item.errors.full_messages).to include("Status must be other than 1")
       end
    
       it 'delivery_fee_idが空の場合' do
-        @item.delivery_fee_id = nil
+        @item.delivery_fee_id = "1"
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery fee can't be blank")
+        expect(@item.errors.full_messages).to include("Delivery fee must be other than 1")
       end
    
       it 'delivery_where_idが空の場合' do
-        @item.delivery_where_id = nil
+        @item.delivery_where_id = "1"
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery where can't be blank")
+        expect(@item.errors.full_messages).to include("Delivery where must be other than 1")
       end
    
       it 'delivery_when_idが空の場合' do
-        @item.delivery_when_id = nil
+        @item.delivery_when_id = "1"
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery when can't be blank")
+        expect(@item.errors.full_messages).to include("Delivery when must be other than 1")
       end
    
       it 'priceが空の場合' do
