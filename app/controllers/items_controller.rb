@@ -1,8 +1,10 @@
 class ItemsController < ApplicationController
   before_action :find_params, only: [:show, :edit, :update, :destroy]
+  before_action :sold_out, only: [:index, :show]
+  
 
   def index
-    @items = Item.includes(:user).order(created_at: "DESC")
+    @items = Item.includes(:user, :order).order(created_at: "DESC")
   end
 
   def new
@@ -35,6 +37,7 @@ class ItemsController < ApplicationController
     end
   end
 
+
   private
   def item_params
     params.require(:item).permit(:name, :content, :price, :category_id, :status_id, :delivery_fee_id, :delivery_when_id, :delivery_where_id, :image).merge(user_id: current_user.id)
@@ -42,6 +45,10 @@ class ItemsController < ApplicationController
 
   def find_params
     @item = Item.find(params[:id])
+  end
+
+  def sold_out
+    @order = Order.new
   end
 
 end
