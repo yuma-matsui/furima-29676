@@ -1,5 +1,4 @@
 class OrderAddress
-
   include ActiveModel::Model
   attr_accessor :token, :post_number, :prefecture_id, :city_name, :house_number, :building_name, :phone_number, :item_id, :user_id
 
