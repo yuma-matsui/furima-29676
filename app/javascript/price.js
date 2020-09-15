@@ -1,3 +1,4 @@
+if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
 function priceChange() {
   const price = document.getElementById("item-price");
   const tax = document.getElementById("add-tax-price");
@@ -9,3 +10,4 @@ function priceChange() {
   })
 };
 setInterval(priceChange, 1000);
+}

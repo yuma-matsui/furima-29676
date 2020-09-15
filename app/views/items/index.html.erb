@@ -131,8 +131,12 @@
       <li class='list'>
         <%= link_to "items/#{item.id}" do %>
         <div class='item-img-content'>
-          <%= image_tag item.image, class: "item-img" %>
-
+        <%# <% item.images.each do |image| %> 
+          <% if item.images.count > 0 %>
+            <%= image_tag item.images.first.variant(resize: "500x500").processed, class: "item-img" %>
+            <% end %>
+          <%# <%=image_tag image, class: "item-img" %>
+        <%# <% end %>
           <%# 商品が売れていればsold outを表示しましょう %>
           <% if item.order != @order.item_id %>
           <div class='sold-out'>
