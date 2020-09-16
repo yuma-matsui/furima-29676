@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :item do
-    image             { 'image.jpg' }
+    images            {"image.jpg"}
     name              {Faker::Name.name}
     content           {Faker::Lorem.sentences}
     category_id       {Faker::Number.between(from: 2, to: 11)}
@@ -10,5 +10,6 @@ FactoryBot.define do
     delivery_where_id {Faker::Number.between(from: 2, to: 7)}
     price             {Faker::Number.within(range: 300..9_999_999)}
     association :user
+
   end
 end
