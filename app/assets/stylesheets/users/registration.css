@@ -137,6 +137,10 @@
   margin: 0 auto;
 }
 
+.register-btn-edit{
+  margin: 20px auto 0;
+}
+
 .register-red-btn {
   width: 100%;
   background: #ea352d;
