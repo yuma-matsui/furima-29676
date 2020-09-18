@@ -8,6 +8,6 @@ Rails.application.routes.draw do
     resources :orders, only: %i[index create]
   end
   resources :users, only: [:edit, :update, :show]
-  resources :cards, only: [:new, :create]
+  resources :cards, only: [:new, :create, :show, :destroy]
   
 end
