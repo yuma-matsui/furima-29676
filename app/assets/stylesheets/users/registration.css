@@ -158,26 +158,3 @@
   cursor: pointer;
 }
 
-.register-card{
-  font-size: 16px;
-  text-decoration: none;
-}
-
-.form-header-text-edit{
-  margin: 10px auto;
-  font-weight: bold;
-}
-
-.register-list li{
-  font-size: 14px;
-  margin-bottom: 5px;
-}
-
-.register-item{
-  color: lightblue;
-}
-
-.form-group p {
-  font-size: 18px;
-}
-
