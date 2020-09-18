@@ -1,0 +1,67 @@
+<%= render "shared/second-header"%>
+
+<div class='registration-main'>
+  <div class='form-wrap'>
+    <div class='form-header'>
+        <h1 class='form-header-text-edit'>
+          <%= current_user.nickname %>
+        </h1>
+        <div class="register-edit">
+          <ul class="register-list">
+            <li>
+              <%= link_to "・登録情報編集", edit_user_path(current_user), class: "register-item" %>
+            </li>
+            <li>
+              <%= link_to "・カード情報登録", new_card_path, class: "register-item" %>
+            </li>
+          </ul>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <div class="form-text">ニックネーム</div>
+        <p><%= current_user.nickname %></p>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <div class="form-text">メールアドレス</div>
+        <p><%= current_user.email %></p>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <div class="form-text">お名前(全角)</div>
+        <p><%= current_user.first_name %><%= current_user.last_name %></p>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <div class="form-text">お名前カナ(全角)</div>
+        <p><%= current_user.first_name_kana %><%= current_user.last_name_kana %></p>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <div class="form-text">生年月日</div>
+        <p><%= current_user.birth_date %></p>
+      </div>
+    </div>  
+
+    <%# <div class="form-group">
+      <div class='form-text-wrap'>
+        <div class="form-text">カード情報</div>
+            <p><span>【番号】</span>
+            <%= "**** **** **** " + @card[:last4] %>
+           <%# </p>
+            <p><span>【有効期限】</span>
+            <%# <%= @card[:exp_month] %> 
+            <%# <%= @card[:exp_year] %>
+            <%# </p>
+      </div>
+    </div> %> 
+
+  </div>
+ </div>
+<%= render "shared/second-footer"%>

@@ -19,11 +19,11 @@
   height: 120px;
   text-align: center;
   font-size: 22px;
+  border-bottom: 1px solid #f5f5f5;
 }
 
 .form-header-text {
-  line-height: 100px;
-  border-bottom: 1px solid #f5f5f5;
+  line-height: 120px;
   font-weight: bold;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .form-text {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
 }
 
@@ -156,4 +156,32 @@
   color: #0099e8;
   text-align: right;
   cursor: pointer;
+}
+
+.register-card{
+  font-size: 16px;
+  text-decoration: none;
+  color: red;
+}
+
+.form-header-text-edit{
+  margin: 10px auto;
+  font-weight: bold;
+}
+
+.register-list li{
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.register-item{
+  color: #ea352d;
+}
+
+.form-group p {
+  font-size: 18px;
+}
+
+.form-group span {
+  font-size: 14px;
 }
