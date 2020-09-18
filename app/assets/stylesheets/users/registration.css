@@ -161,7 +161,6 @@
 .register-card{
   font-size: 16px;
   text-decoration: none;
-  color: red;
 }
 
 .form-header-text-edit{
@@ -175,13 +174,10 @@
 }
 
 .register-item{
-  color: #ea352d;
+  color: lightblue;
 }
 
 .form-group p {
   font-size: 18px;
 }
 
-.form-group span {
-  font-size: 14px;
-}

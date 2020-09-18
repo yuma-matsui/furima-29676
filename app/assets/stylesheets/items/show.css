@@ -57,7 +57,13 @@
   font-weight: bold;
   color: #FFF;
   margin: 20px 0px;
-  padding: 2vh 10vw;
+  padding: 2vh 7vw;
+  border-radius: 5px;
+}
+
+.card-btn{
+  font-size: 17px;
+  border-radius: 5px;
 }
 
 .or-text {

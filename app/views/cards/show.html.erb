@@ -1,0 +1,35 @@
+<%= render "shared/second-header"%>
+
+<div class='registration-main'>
+  <div class='form-wrap'>
+    <div class='form-header'>
+        <h1 class="credit-main">
+          登録クレジットカード情報
+        </h1>
+    </div>
+
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <div class="form-text">カード番号</div>
+        <p><%= "**** **** **** " + @card[:last4] %></p>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <div class="form-text">有効期限</div>
+        <p><%= @card[:exp_month] %>/<%= @card[:exp_year] %></p>
+      </div>
+    </div>  
+
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <div class="form-text">
+          <p class="delete-card-text"><%= link_to '※カード情報を削除する', "/cards/#{@credit.id}", method: :delete, class: "delete-card" %></p>
+        </div>
+      </div>
+    </div>  
+
+
+  </div>
+ </div>
+<%= render "shared/second-footer"%>

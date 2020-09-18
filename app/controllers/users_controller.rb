@@ -1,14 +1,6 @@
 class UsersController < ApplicationController
   before_action :user_find, only: [:edit, :update]
 
-  # def show
-  #   Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-  #   card = Card.find_by(user_id: current_user.id)
-
-  #   customer = Payjp::Customer.retrieve(card.customer_token)
-  #   @card = customer.cards.first
-  # end
-
   def update
     if @user.update(user_params)
       sign_in(@user, bypass: true)
