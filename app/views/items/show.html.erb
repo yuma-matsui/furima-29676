@@ -36,9 +36,9 @@
     <P style="color:red; font-size:30px; font-weight: bold;"><%= "Sold Out!!" %></P>
     <%# 商品が売れていない場合はこちらを表示しましょう %>
     <% else %>
-    <%= link_to '購入画面に進む', "/items/#{@item.id}/orders" ,class:"item-red-btn"%>
-    <%# //商品が売れていない場合はこちらを表示しましょう %>
+    <%= link_to '購入画面に進む', "/items/#{@item.id}/orders", class:"item-red-btn"%>
     <% end %>
+    <%# //商品が売れていない場合はこちらを表示しましょう %>
 
     <%# //ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
 

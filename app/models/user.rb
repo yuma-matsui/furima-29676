@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :items
   has_many :orders
+  has_one  :card, dependent: :destroy
 
   validates :nickname, presence: true
   validates :email, uniqueness: true, format: { with: /.+@.+/ }

@@ -1,0 +1,56 @@
+<%= render "shared/second-header"%>
+
+<div class='registration-main'>
+  <div class='form-wrap'>
+    <div>
+        <h1 class='form-header-text-edit'>
+          <%= current_user.nickname %>
+        </h1>
+    </div>
+
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <p class="form-text">ニックネーム</p>
+        <p><%= current_user.nickname %></p>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <p class="form-text">メールアドレス</p>
+        <p><%= current_user.email %></p>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <p class="form-text">お名前(全角)</p>
+        <p><%= current_user.first_name %><%= current_user.last_name %></p>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <p class="form-text">お名前カナ(全角)</p>
+        <p><%= current_user.first_name_kana %><%= current_user.last_name_kana %></p>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <p class="form-text">生年月日</p>
+        <p><%= current_user.birth_date %></p>
+      </div>
+    </div>  
+
+    <div class="register-edit">
+          <ul class="register-list">
+            <li>
+              <%= link_to "・登録情報編集", edit_user_path(current_user), class: "register-item" %>
+            </li>
+            <li>
+              <%= link_to "・カード情報登録", new_card_path, class: "register-item" %>
+              / <%= link_to "確認", card_path(current_user), class: "register-item" %>
+            </li>
+          </ul>
+    </div>
+
+  </div>
+ </div>
+<%= render "shared/second-footer"%>
