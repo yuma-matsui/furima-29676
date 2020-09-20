@@ -1,4 +1,4 @@
-if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
+if (location.pathname.match( "items/new" ) || location.pathname.match( "items/\/(\d+)$/edit" )) {
 document.addEventListener('DOMContentLoaded', () => {
   const ImageList = document.getElementById('image-list');
   const createImageHTML = (blob) => {

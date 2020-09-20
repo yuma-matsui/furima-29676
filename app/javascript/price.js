@@ -1,4 +1,4 @@
-if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
+if (location.pathname.match( "items/new" ) || location.pathname.match( "items/\/(\d+)$/edit" )) {
 function priceChange() {
   const price = document.getElementById("item-price");
   const tax = document.getElementById("add-tax-price");
