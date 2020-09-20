@@ -3,7 +3,8 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      ActionCable.server.broadcast 'comment_channel', content: @comment
+      # ActionCable.server.broadcast 'comment_channel', content: @comment
+      redirect_to "/items/#{@comment.item.id}"
     else
       redirect_to "/items/#{@comment.item.id}"
     end
