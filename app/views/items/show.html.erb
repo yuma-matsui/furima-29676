@@ -76,15 +76,15 @@
     </table>
 
   <div class="comments">
-  <h1 class="comment-header">コメント一覧</h1>
-    <div class="user-comment">
+    <h1 class="comment-header">コメント一覧</h1>
       <% if @comments %>
-        <% @comments.each do |comment| %>
-          <h1><%= comment.user.nickname %></h1>
-          <p><%= comment.content %></p>
-        <% end %>
-  </div>
-    <% end %>
+        <div class="user-comment", id="comments">
+          <% @comments.each do |comment| %>
+            <h1>投稿者:<%= comment.user.nickname %>
+            <p><%= comment.content %></p>
+          <% end %>
+        </div>
+      <% end %>
   </div>
 
     <div class="option">
@@ -103,7 +103,8 @@
   <div class="comment-box">
     <% if user_signed_in? && current_user.id != @item.user_id %>
       <%= form_with(model: [@item, @comment], local: true) do |form| %>
-        <%= form.text_area :content, placeholder: "相手のことを考え丁寧なコメントを心がけましょう。", class:"comment-text" %>
+        <%= form.text_area :content, class:"comment-text" %>
+        <p class="comment-warn">※相手の事を考え丁寧なコメントを心がけましょう。</p>
         <%= form.submit "コメントする", class:"comment-btn" %>
       <% end %>
     <% end %>
