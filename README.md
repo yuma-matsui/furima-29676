@@ -98,10 +98,10 @@ Things you may want to cover:
 
 
 
-<!-- ## comments テーブル
+## comments テーブル
 
 | Column | Type        | Options                        |
 | ------- | ---------- | ------------------------------ |
 | content | text       | null: false                    |
 | user    | references | null: false, foreign_key: true |
-| item    | references | null: false, foreign_key: true | -->
+| item    | references | null: false, foreign_key: true |
