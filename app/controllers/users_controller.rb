@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   before_action :user_find, only: [:edit, :update]
 
+  def index
+    @items = current_user.items.includes(:order, :user).order(created_at: :desc)
+    @order = Order.new
+  end
+
   def update
     if @user.update(user_params)
       sign_in(@user, bypass: true)

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
     resources :orders, only: %i[index create new]
   end
-  resources :users, only: [:edit, :update, :show]
+  resources :users, only: [:edit, :update, :show, :index]
   resources :cards, only: [:new, :create, :show, :destroy]
 
 end
