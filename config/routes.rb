@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'cards/new'
   get 'users/show'
   get 'items/index'
+  get 'orders/show'
   devise_for :users
   root to: 'items#index'
   resources :items do

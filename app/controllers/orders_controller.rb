@@ -41,6 +41,11 @@ class OrdersController < ApplicationController
     end
   end
 
+  def show
+    @orders = current_user.orders.includes(:user, :item).order(created_at: :desc)
+  end
+
+
   private
 
   def move_to_session
