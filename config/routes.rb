@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'items#index'
   resources :items do
+    resources :favorites, only: [:create, :destroy]
     resources :orders, only: %i[index create]
     resources :comments, only: [:create]
   end
