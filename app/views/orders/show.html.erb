@@ -1,0 +1,38 @@
+<%= render "shared/second-header" %>
+<div class='main'>
+  <%# 商品一覧 %>
+  <div class='item-contents'>
+    <h2 class='title'>購入履歴</h2>
+    <ul class='item-lists'>
+
+      <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
+      <% @orders.each do |order| %>
+      <li class='list'>
+        <%= link_to "/items/#{order.item.id}" do %>
+        <div class='item-img-content'>
+          <% if order.item.images.count > 0 %>
+            <%= image_tag order.item.images.first.variant(resize: "500x500").processed, class: "item-img" %>
+            <% end %>
+        </div>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= order.item.name %>
+          </h3>
+          <div class='item-price'>
+            <span><%= order.item.price %>円<br>(税込み)</span>
+            <div class='star-btn'>
+              <%= image_tag "star.png", class:"star-icon" %>
+              <span class='star-count'>0</span>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </li>
+      <% end %>
+      <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
+    </ul>
+  </div>
+  <%# /商品一覧 %>
+
+</div>
+<%= render "shared/second-footer" %>
