@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :user
   has_many_attached :images
-  has_one :order
+  has_one :order, dependent: :destroy
   has_one :card
   has_many :comments, dependent: :destroy
 

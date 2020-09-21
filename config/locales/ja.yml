@@ -27,3 +27,9 @@ ja:
       phone_number: 電話番号
       prefecture_id: 都道府県
       token: クレジットカード情報
+    card_address:
+      post_number: 郵便番号
+      city_name: 市区町村
+      house_number: 番地
+      phone_number: 電話番号
+      prefecture_id: 都道府県

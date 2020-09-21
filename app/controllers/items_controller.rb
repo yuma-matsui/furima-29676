@@ -54,4 +54,5 @@ class ItemsController < ApplicationController
   def sold_out
     @order = Order.new
   end
+
 end
