@@ -22,7 +22,7 @@
             <span><%= order.item.price %>円<br>(税込み)</span>
             <div class='star-btn'>
               <%= image_tag "star.png", class:"star-icon" %>
-              <span class='star-count'>0</span>
+              <span class='star-count'><%= order.item.favorites.count %></span>
             </div>
           </div>
         </div>

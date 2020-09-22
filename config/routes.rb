@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'cards/new'
   get 'users/show'
+  get 'favorites/index'
   get 'items/index'
   get 'orders/show'
   devise_for :users

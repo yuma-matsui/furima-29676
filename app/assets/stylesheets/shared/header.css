@@ -57,7 +57,8 @@
 .lists-left {
   display: flex;
   min-width: 200px;
-
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .category-list {
@@ -80,9 +81,9 @@
 
 .user-nickname {
   text-decoration: none;
-  margin-right: 3vw;
+  margin-right: 2vw;
   color: #333333;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
 }
 
@@ -90,7 +91,7 @@
 .logout {
   text-decoration: none;
   color: #333333;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
 }
 

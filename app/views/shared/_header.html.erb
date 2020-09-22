@@ -20,6 +20,7 @@
       <li><%= link_to  current_user.nickname, user_path(current_user), class: "user-nickname" %></li>
       <li><%= link_to  "購入履歴", orders_show_path(current_user), class: "user-nickname" %></li>
       <li><%= link_to  "出品履歴", users_path(current_user), class: "user-nickname" %></li>
+      <li><%= link_to  "お気に入り", favorites_index_path(current_user), class: "user-nickname" %></li>
       <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
       <% else %>
       <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
