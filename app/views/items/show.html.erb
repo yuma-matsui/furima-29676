@@ -33,7 +33,7 @@
     <p class='or-text'>or</p>
     <%= link_to '削除', "/items/#{@item.id}", method: :delete, class:'item-destroy' %>
     <% elsif @item.order != @order.item_id %>
-    <P style="color:red; font-size:30px; font-weight: bold;"><%= "Sold Out!!" %></P>
+    <p style="color:red; font-size:30px; font-weight: bold;"><%= "Sold Out!!" %></p>
     <%# 商品が売れていない場合はこちらを表示しましょう %>
     <% else %>
     <%= link_to '購入画面に進む', "/items/#{@item.id}/orders", class:"item-red-btn"%>
@@ -90,17 +90,20 @@
 
     <div class="option">
 
-      <% if user_signed_in? && current_user.id != @item.user.id %>
-        <%= link_to "/items/#{@item.id}/favorites",  class:"favorite-btn", id: "favorite-btn", method: :post do %>
-          <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-          <span>お気に入り 0</span>
+      <% if user_signed_in? && current_user.id != @item.user_id && @item.favorite_by?(current_user) %>
+        <%= link_to item_favorite_path(@item.id),  class:"favorite-btn", id: "favorite-btn", method: :delete do %>
+        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20" %>
+        <span>お気に入り <%= @item.favorites.count %></span>
         <% end %>
-      <% elsif @item.id == @favorite.item_id %>
-      <p>hello</p>
+      <% elsif user_signed_in? && current_user.id != @item.user.id %>
+        <%= link_to "/items/#{@item.id}/favorites",  class:"favorite-btn", id: "favorite-btn", method: :post do %>
+        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+        <span>お気に入り <%= @item.favorites.count %></span>
+        <% end %>
       <% else %>
         <div class="favorite-btn">
           <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-          <span>お気に入り 0</span>
+          <span>お気に入り<%= @item.favorites.count %></span>
         </div>
       <% end %>
 
