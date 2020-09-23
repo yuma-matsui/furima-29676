@@ -20,4 +20,12 @@ class Item < ApplicationRecord
   def favorite_by?(user)
     favorites.where(user_id: user.id).exists?
   end
+
+  def self.search(search)
+    if search != ""
+      Item.where(['name LIKE(?) OR content LIKE(?)', "%#{search}%", "%#{search}%"])
+    else
+      Item.all
+    end
+  end
 end
