@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :find_params, only: %i[show edit update destroy]
-  before_action :sold_out, only: %i[index show]
+  before_action :sold_out, only: %i[index show search]
 
   def index
     @items = Item.includes(:user, :order).order(created_at: 'DESC')
@@ -39,6 +39,10 @@ class ItemsController < ApplicationController
     else
       render :show
     end
+  end
+
+  def search
+    @items = Item.search(params[:keyword]).order(created_at: :desc)
   end
 
   private

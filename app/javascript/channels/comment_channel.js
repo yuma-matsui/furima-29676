@@ -10,10 +10,10 @@ consumer.subscriptions.create("CommentChannel", {
   },
 
   received(data) {
-    const html = `<h1>投稿者ID:${data.content.user_id}</h1><p>${data.content.content}</p>`;
-    const comments = document.getElementById('comments');
-    const newComment = document.getElementById('comment_content');
-    comments.insertAdjacentHTML('afterbegin', html);
-    newComment.value ="";
+    // const html = `<h1>投稿者ID:${data.content.user_id}</h1><p>${data.content.content}</p>`;
+    // const comments = document.getElementById('comments');
+    // const newComment = document.getElementById('comment_content');
+    // comments.insertAdjacentHTML('afterbegin', html);
+    // newComment.value ="";
   }
 });

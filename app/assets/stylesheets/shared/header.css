@@ -41,9 +41,6 @@
   padding: 8px;
 }
 
-.search-icon {
-  width: 100%;
-}
 
 .nav {
   font-size: 20px;
@@ -111,6 +108,10 @@
   margin-right: 5px;
 }
 
+.icon-box {
+  cursor: hand;
+  cursor: pointer;
+}
 
 .list-menu {
   height: 100%;
