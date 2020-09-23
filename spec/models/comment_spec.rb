@@ -14,11 +14,10 @@ RSpec.describe Comment, type: :model do
 
     context 'コメントができない時' do
       it 'contentが空の場合' do
-        @comment.content = ""
+        @comment.content = ''
         @comment.valid?
-        expect(@comment.errors.full_messages).to include("Contentを入力してください")
+        expect(@comment.errors.full_messages).to include('Contentを入力してください')
       end
     end
   end
-
 end

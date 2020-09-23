@@ -7,8 +7,8 @@ class User < ApplicationRecord
   has_many :items
   has_many :orders
   has_one  :card, dependent: :destroy
-  has_many :comments
-  has_many :favorites
+  has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   validates :nickname, presence: true
   validates :email, uniqueness: true, format: { with: /.+@.+/ }

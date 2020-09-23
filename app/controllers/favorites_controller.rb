@@ -1,15 +1,18 @@
 class FavoritesController < ApplicationController
+  # before_action :item_find, only: [:create, :destroy]
+
+  def index
+    @favorites = current_user.favorites.includes(:user, :item).order(created_at: :desc)
+    @order = Order.new
+  end
 
   def create
-    favorite = Favorite.new(favorite_params)
-    favorite.save
-    redirect_to root_path
+    favorite = current_user.favorites.create(item_id: params[:item_id])
+    redirect_to item_path(params[:item_id])
   end
 
-  private
-
-  def favorite_params
-    params.permit(:checked).merge(user_id: current_user.id, item_id: params[:item_id])
+  def destroy
+    current_user.favorites.find_by(item_id: params[:item_id]).destroy!
+    redirect_to item_path(params[:item_id])
   end
-
 end

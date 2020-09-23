@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :move_to_session, only: [:index]
   before_action :move_to_index, only: [:index]
-  before_action :set_item, only: %i[index create ]
+  before_action :set_item, only: %i[index create]
 
   def index
     @order = OrderAddress.new
@@ -16,7 +16,6 @@ class OrdersController < ApplicationController
       @order = CardAddress.new
     end
   end
-
 
   def create
     card = Card.where(user_id: current_user.id).first
@@ -45,7 +44,6 @@ class OrdersController < ApplicationController
     @orders = current_user.orders.includes(:user, :item).order(created_at: :desc)
   end
 
-
   private
 
   def move_to_session
@@ -66,7 +64,6 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item_id])
   end
 
-
   def pay_item
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
@@ -77,7 +74,7 @@ class OrdersController < ApplicationController
   end
 
   def credit_pay
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     customer_token = current_user.card.customer_token
     Payjp::Charge.create(
       amount: @item.price,
@@ -89,5 +86,4 @@ class OrdersController < ApplicationController
   def address_params
     params.permit(:post_number, :prefecture_id, :city_name, :house_number, :building_name, :phone_number, :item_id).merge(user_id: current_user.id)
   end
-
 end

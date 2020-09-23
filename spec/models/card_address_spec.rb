@@ -15,11 +15,10 @@ RSpec.describe CardAddress, type: :model do
       expect(@card_address). to be_valid
     end
 
-
     it 'post_numberが空では登録できないこと' do
       @card_address.post_number = ''
       @card_address.valid?
-      expect(@card_address.errors.full_messages).to include("郵便番号を入力してください")
+      expect(@card_address.errors.full_messages).to include('郵便番号を入力してください')
     end
 
     it 'post_numberにハイフンが含まれていないと登録できないこと' do
@@ -49,25 +48,25 @@ RSpec.describe CardAddress, type: :model do
     it 'prefecture_idが選択されていなければ登録できないこと' do
       @card_address.prefecture_id = '1'
       @card_address.valid?
-      expect(@card_address.errors.full_messages).to include("都道府県を選択してください")
+      expect(@card_address.errors.full_messages).to include('都道府県を選択してください')
     end
 
     it 'city_nameが空では登録できないこと' do
       @card_address.city_name = ''
       @card_address.valid?
-      expect(@card_address.errors.full_messages).to include("市区町村を入力してください")
+      expect(@card_address.errors.full_messages).to include('市区町村を入力してください')
     end
 
     it 'house_numberが空では登録できないこと' do
       @card_address.house_number = ''
       @card_address.valid?
-      expect(@card_address.errors.full_messages).to include("番地を入力してください")
+      expect(@card_address.errors.full_messages).to include('番地を入力してください')
     end
 
     it 'phone_numberが空では登録できないこと' do
       @card_address.phone_number = ''
       @card_address.valid?
-      expect(@card_address.errors.full_messages).to include("電話番号を入力してください")
+      expect(@card_address.errors.full_messages).to include('電話番号を入力してください')
     end
 
     it 'phone_numberに数字以外が含まれていては登録できないこと' do

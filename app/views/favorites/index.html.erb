@@ -2,18 +2,18 @@
 <div class='main'>
   <%# 商品一覧 %>
   <div class='item-contents'>
-    <h2 class='title'>出品履歴</h2>
+    <h2 class='title'>お気に入り商品</h2>
     <ul class='item-lists'>
 
       <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
-      <% @items.each do |item| %>
+      <% @favorites.each do |favorite| %>
       <li class='list'>
-        <%= link_to "/items/#{item.id}" do %>
+        <%= link_to "/items/#{favorite.item.id}" do %>
         <div class='item-img-content'>
-          <% if item.images.count > 0 %>
-            <%= image_tag item.images.first.variant(resize: "500x500").processed, class: "item-img" %>
+          <% if favorite.item.images.count > 0 %>
+            <%= image_tag favorite.item.images.first.variant(resize: "500x500").processed, class: "item-img" %>
             <% end %>
-          <% if item.order != @order.item_id %>
+           <% if favorite.item.order != @order.item_id %>
           <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
@@ -21,13 +21,13 @@
         </div>
         <div class='item-info'>
           <h3 class='item-name'>
-            <%= item.name %>
+            <%= favorite.item.name %>
           </h3>
           <div class='item-price'>
-            <span><%= item.price %>円<br>(税込み)</span>
+            <span><%= favorite.item.price %>円<br>(税込み)</span>
             <div class='star-btn'>
               <%= image_tag "star.png", class:"star-icon" %>
-              <span class='star-count'><%= item.favorites.count %></span>
+              <span class='star-count'><%= favorite.item.favorites.count %></span>
             </div>
           </div>
         </div>

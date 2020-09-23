@@ -1,5 +1,4 @@
 <%= render "shared/header" %>
-
 <%# 商品の概要 %>
 <div class="item-show">
   <div class="item-box">
@@ -33,7 +32,7 @@
     <p class='or-text'>or</p>
     <%= link_to '削除', "/items/#{@item.id}", method: :delete, class:'item-destroy' %>
     <% elsif @item.order != @order.item_id %>
-    <P style="color:red; font-size:30px; font-weight: bold;"><%= "Sold Out!!" %></P>
+    <p style="color:red; font-size:30px; font-weight: bold;"><%= "Sold Out!!" %></p>
     <%# 商品が売れていない場合はこちらを表示しましょう %>
     <% else %>
     <%= link_to '購入画面に進む', "/items/#{@item.id}/orders", class:"item-red-btn"%>
@@ -76,39 +75,40 @@
       </tbody>
     </table>
 
-  <div class="comments">
-    <h1 class="comment-header">コメント一覧</h1>
-      <% if @comments %>
-        <div class="user-comment", id="comments">
-          <% @comments.each do |comment| %>
-            <h1>投稿者:<%= comment.user.nickname %>
-            <p><%= comment.content %></p>
-          <% end %>
-        </div>
-      <% end %>
-  </div>
-
-    <div class="option">
-
-      <% if user_signed_in? && current_user.id != @item.user.id %>
-        <%= link_to "/items/#{@item.id}/favorites",  class:"favorite-btn", id: "favorite-btn", method: :post do %>
-          <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-          <span>お気に入り 0</span>
+    <div class="comments">
+      <h1 class="comment-header">コメント一覧</h1>
+        <% if @comments %>
+          <div class="user-comment", id="comments">
+            <% @comments.each do |comment| %>
+              <h1>投稿者:<%= comment.user.nickname %>
+              <p><%= comment.content %></p>
+            <% end %>
+          </div>
         <% end %>
-      <% elsif @item.id == @favorite.item_id %>
-      <p>hello</p>
-      <% else %>
-        <div class="favorite-btn">
-          <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-          <span>お気に入り 0</span>
-        </div>
-      <% end %>
-
-      <div class="report-btn">
-        <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
-        <span>不適切な商品の通報</span>
-      </div>
     </div>
+
+  <div class="option">
+    <% if user_signed_in? && current_user.id != @item.user_id && @item.favorite_by?(current_user) %>
+      <%= link_to item_favorite_path(@item.id),  class:"favorite-btn favorite-btn-on", method: :delete do %>
+        <%= image_tag "star2.png" ,class:"favorite-star-icon favorite-star-icon-on" ,width:"20",height:"20" %>
+        <span>お気に入り <%= @item.favorites.count %></span>
+      <% end %>
+    <% elsif user_signed_in? && current_user.id != @item.user.id %>
+      <%= link_to "/items/#{@item.id}/favorites",  class:"favorite-btn", method: :post do %>
+        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+        <span>お気に入り <%= @item.favorites.count %></span>
+      <% end %> 
+    <% else %>
+      <div class="favorite-btn">
+        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+        <span>お気に入り<%= @item.favorites.count %></span>
+      </div>
+    <% end %>
+        <div class="report-btn">
+          <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
+          <span>不適切な商品の通報</span>
+        </div> 
+      </div>
   </div>
   <%# /商品の概要 %>
 
