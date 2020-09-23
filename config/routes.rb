@@ -7,12 +7,11 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'items#index'
   resources :items do
-    resources :favorites, only: [:create, :destroy]
+    resources :favorites, only: %i[create destroy]
     resources :orders, only: %i[index create]
     resources :comments, only: [:create]
     resources :orders, only: %i[index create new]
   end
-  resources :users, only: [:edit, :update, :show, :index]
-  resources :cards, only: [:new, :create, :show, :destroy]
-
+  resources :users, only: %i[edit update show index]
+  resources :cards, only: %i[new create show destroy]
 end

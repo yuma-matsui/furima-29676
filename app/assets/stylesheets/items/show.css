@@ -122,8 +122,17 @@
   margin-right: 20px;
 }
 
+.favorite-btn-on {
+  background-color: #ffb340;
+  color: white;
+}
+
 .favorite-star-icon {
   margin-right: 5px;
+}
+
+.favorite-star-icon-on {
+  background-color:  #ffb340;
 }
 
 .report-btn {

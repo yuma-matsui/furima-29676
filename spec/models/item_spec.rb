@@ -16,19 +16,19 @@ RSpec.describe Item, type: :model do
       it 'imagesが空の場合' do
         @item.images = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("出品画像を入力してください")
+        expect(@item.errors.full_messages).to include('出品画像を入力してください')
       end
 
       it 'nameが空の場合' do
         @item.name = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("商品名を入力してください")
+        expect(@item.errors.full_messages).to include('商品名を入力してください')
       end
 
       it 'contentが空の場合' do
         @item.content = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("商品の説明を入力してください")
+        expect(@item.errors.full_messages).to include('商品の説明を入力してください')
       end
 
       it 'category_idが空の場合' do
@@ -64,7 +64,7 @@ RSpec.describe Item, type: :model do
       it 'priceが空の場合' do
         @item.price = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("価格を入力してください")
+        expect(@item.errors.full_messages).to include('価格を入力してください')
       end
 
       it 'priceが300未満の場合' do

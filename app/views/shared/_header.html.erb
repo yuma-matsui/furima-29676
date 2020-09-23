@@ -14,19 +14,23 @@
       <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
       <li><%= link_to 'ブランド', "#", class: "brand-list" %></li>
     </ul>
-    <ul class='lists-right'>
-      <%# deviseを導入できたら、ログインの有無で表示が変わるように分岐しましょう%>
-      <% if user_signed_in? %>
-      <li><%= link_to  current_user.nickname, user_path(current_user), class: "user-nickname" %></li>
-      <li><%= link_to  "購入履歴", orders_show_path(current_user), class: "user-nickname" %></li>
-      <li><%= link_to  "出品履歴", users_path(current_user), class: "user-nickname" %></li>
-      <li><%= link_to  "お気に入り", favorites_index_path(current_user), class: "user-nickname" %></li>
-      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
-      <% else %>
-      <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-      <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
-      <% end %>
-      <%# //deviseを導入できたら、ログインの有無で表示が変わるように分岐しましょう%>
-    </ul>
+
+    <% if user_signed_in? %>
+      <div class="lists-right-none", id="lists-right">
+      <ul class='lists-right lists-right-on'>
+        <li class="list-menu"><%= link_to  "マイページ", user_path(current_user), class: "user-nickname" %></li>
+        <li class="list-menu"><%= link_to  "購入履歴", orders_show_path(current_user), class: "user-nickname" %></li>
+        <li class="list-menu"><%= link_to  "出品履歴", users_path(current_user), class: "user-nickname" %></li>
+        <li class="list-menu"><%= link_to  "お気に入り", favorites_index_path(current_user), class: "user-nickname" %></li>
+        <li class="list-logout"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+      </ul>
+      </div>
+      <%= image_tag "menu_bar.png", calss: "menu-icon", id: "menu-icon", width: 45, height: 45 %>
+    <% else %>
+     <ul class='lists-right'>
+        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+        <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+      </ul>
+    <% end %>
   </div>
 </header>

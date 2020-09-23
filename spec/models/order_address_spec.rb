@@ -18,13 +18,13 @@ RSpec.describe OrderAddress, type: :model do
     it 'クレジット情報が正しく入力されていなければ保存できないこと' do
       @order_address.token = ''
       @order_address.valid?
-      expect(@order_address.errors.full_messages).to include("クレジットカード情報を入力してください")
+      expect(@order_address.errors.full_messages).to include('クレジットカード情報を入力してください')
     end
 
     it 'post_numberが空では登録できないこと' do
       @order_address.post_number = ''
       @order_address.valid?
-      expect(@order_address.errors.full_messages).to include("郵便番号を入力してください")
+      expect(@order_address.errors.full_messages).to include('郵便番号を入力してください')
     end
 
     it 'post_numberにハイフンが含まれていないと登録できないこと' do
@@ -54,25 +54,25 @@ RSpec.describe OrderAddress, type: :model do
     it 'prefecture_idが選択されていなければ登録できないこと' do
       @order_address.prefecture_id = '1'
       @order_address.valid?
-      expect(@order_address.errors.full_messages).to include("都道府県を選択してください")
+      expect(@order_address.errors.full_messages).to include('都道府県を選択してください')
     end
 
     it 'city_nameが空では登録できないこと' do
       @order_address.city_name = ''
       @order_address.valid?
-      expect(@order_address.errors.full_messages).to include("市区町村を入力してください")
+      expect(@order_address.errors.full_messages).to include('市区町村を入力してください')
     end
 
     it 'house_numberが空では登録できないこと' do
       @order_address.house_number = ''
       @order_address.valid?
-      expect(@order_address.errors.full_messages).to include("番地を入力してください")
+      expect(@order_address.errors.full_messages).to include('番地を入力してください')
     end
 
     it 'phone_numberが空では登録できないこと' do
       @order_address.phone_number = ''
       @order_address.valid?
-      expect(@order_address.errors.full_messages).to include("電話番号を入力してください")
+      expect(@order_address.errors.full_messages).to include('電話番号を入力してください')
     end
 
     it 'phone_numberに数字以外が含まれていては登録できないこと' do

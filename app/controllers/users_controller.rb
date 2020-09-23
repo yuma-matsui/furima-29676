@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :user_find, only: [:edit, :update]
+  before_action :user_find, only: %i[edit update]
 
   def index
     @items = current_user.items.includes(:order, :user).order(created_at: :desc)
@@ -24,5 +24,4 @@ class UsersController < ApplicationController
   def user_find
     @user = User.find(params[:id])
   end
-
 end
