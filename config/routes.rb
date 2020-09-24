@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :items do
     collection do
       get 'search'
+      get 'categorize'
     end
     resources :favorites, only: %i[create destroy]
     resources :orders, only: %i[index create]

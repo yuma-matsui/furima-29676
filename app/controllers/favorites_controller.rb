@@ -12,7 +12,7 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    current_user.favorites.find_by(item_id: params[:item_id]).destroy!
+    current_user.favorites.find_by(item_id: params[:item_id]).destroy!    
     redirect_to item_path(params[:item_id])
   end
 end

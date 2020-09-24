@@ -57,6 +57,52 @@
   font-size: 16px;
   font-weight: bold;
   padding-top: 10px;
+  position: relative;
+}
+
+.pull-down-none {
+  display: none;
+}
+
+.pull-down {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 40px;
+  right: 80px;
+  width: 80%;
+  border: 2px solid white;
+  border-radius: 5px;
+  background-color: #3ccace;
+  height: 450px;
+  animation-name: fadein2;
+  animation-duration: 0.9s;
+  animation-iteration-count: 1;
+}
+
+
+@keyframes fadein2 {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -20px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.pull-down li {
+  font-size: 14px;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid white;
+  padding: 8px 0 5px;
+  height: 100%;
+}
+
+.pull-down li :hover{
+  opacity: 0.3;
 }
 
 .category-list {
@@ -70,6 +116,11 @@
   color: #333333;
 }
 
+.pull-child {
+  text-decoration: none;
+  color: white;
+}
+
 .lists-right {
   display: flex;
   list-style: none;
@@ -81,9 +132,9 @@
 }
 
 .lists-right-on{
-  border: 2px solid black;
+  border: 2px solid #3ccace;
   border-radius: 5px;
-  height: 45px;
+  height: 40px;
   animation-name: fadein;
   animation-duration: 1s;
   animation-iteration-count: 1;
@@ -100,22 +151,55 @@
     }
   }
 
+  .lists-right-on li:hover{
+    opacity: 0.8;
+  }
+
 .user-nickname {
   text-decoration: none;
-  color: #333333;
+  color: black;
   font-size: 14px;
   font-weight: bold;
   margin-right: 5px;
 }
 
-.icon-box {
+.icon-box :hover {
   cursor: hand;
   cursor: pointer;
+  animation: mocchiri 3s infinite;
+}
+
+.icon-box {
+  border: 1px solid black;
+  border-radius: 20px;
+  background-color: #3ccace;
+  color: white;
+}
+
+@keyframes mocchiri {
+  0% {
+      transform: scale(1, 0.8);
+  }
+  20% {
+      transform: scale(0.8, 1.1);
+  }
+  95% {
+      transform: scale(1, 1);
+  }
+  100% {
+      transform: scale(1, 0.8);
+  }
+}
+
+.menu-btn {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px;
 }
 
 .list-menu {
   height: 100%;
-  border-right: 2px solid black;
+  border-right: 2px solid #3ccace;
   padding-left: 5px;
   padding-top: 5px;
 }
