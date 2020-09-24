@@ -9,8 +9,22 @@
   </div>
   <div class='nav'>
     <ul class='lists-left'>
-      <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
+      <li><%= link_to 'カテゴリー', "#", class: "category-list", id:"category-bar" %></li>
       <li><%= link_to '絞り込み', "#", class: "brand-list" %></li>
+      <div class="pull-down-none", id="pull-down">
+        <ul class="pull-down">
+          <li><%= link_to 'レディース', categorize_items_path(category_id: 2), class: "pull-child" %></li>
+          <li><%= link_to 'メンズ', categorize_items_path(category_id: 3), class: "pull-child" %></li>
+          <li><%= link_to 'ベビー・キッズ', categorize_items_path(category_id: 4), class: "pull-child" %></li>
+          <li><%= link_to 'インテリア・住まい・小物', categorize_items_path(category_id: 5), class: "pull-child" %></li>
+          <li><%= link_to '本・音楽・ゲーム', categorize_items_path(category_id: 6), class: "pull-child" %></li>
+          <li><%= link_to 'おもちゃ・ホビー・グッズ', categorize_items_path(category_id: 7), class: "pull-child" %></li>
+          <li><%= link_to '家電・スマホ・カメラ', categorize_items_path(category_id: 8), class: "pull-child" %></li>
+          <li><%= link_to 'スポーツ・レジャー', categorize_items_path(category_id: 9), class: "pull-child" %></li>
+          <li><%= link_to 'ハンドメイド', categorize_items_path(category_id: 10), class: "pull-child" %></li>
+          <li><%= link_to 'その他', categorize_items_path(category_id: 11), class: "pull-child" %></li>
+        </ul>
+      </div>
     </ul>
 
     <% if user_signed_in? %>
@@ -23,8 +37,8 @@
         <li class="list-logout"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
       </ul>
       </div>
-      <div class="icon-box">
-      <%= image_tag "menu_bar.png", calss: "menu-icon", id: "menu-icon", width: 45, height: 45 %>
+      <div class="icon-box", id="menu-icon">
+      <h1 class="menu-btn">Menu</h1>
       </div>
     <% else %>
      <ul class='lists-right'>

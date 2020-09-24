@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :find_params, only: %i[show edit update destroy]
-  before_action :sold_out, only: %i[index show search]
+  before_action :sold_out, only: %i[index show search categorize] 
 
   def index
     @items = Item.includes(:user, :order).order(created_at: 'DESC')
@@ -45,6 +45,11 @@ class ItemsController < ApplicationController
     @items = Item.search(params[:keyword]).order(created_at: :desc)
   end
 
+  def categorize
+    @item = Item.where(category_id: params[:category_id]).first
+    @items = Item.where(category_id: params[:category_id]).order(created_at: :desc)
+  end
+
   private
 
   def item_params
@@ -58,4 +63,5 @@ class ItemsController < ApplicationController
   def sold_out
     @order = Order.new
   end
+
 end
