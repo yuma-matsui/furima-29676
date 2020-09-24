@@ -34,6 +34,7 @@
   color: #FFF;
   background-color: #272727;
   text-align: center;
+  height: 100%;
 }
 
 .footer-contents {
@@ -46,16 +47,51 @@
   margin: 0 4vw;
 }
 
+.furima-details ul :hover{
+  cursor: pointer;
+  cursor: hand;
+}
+
 .footer-content-head {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
+.footer-pull-down{
+  display: none;
+}
+
+.footer-pull-parent{
+  margin-top: 8px;
+  background-color: white;
+  animation-name: fadein-bottom;
+  animation-duration: 0.9s;
+  animation-iteration-count: 1;
+}
+
+.footer-pull-parent li{
+  width: 100%;
+  border: 1px solid #272727;
+}
+
+.footer-pull-parent :hover{
+  background-color: aqua;
+  opacity: 0.8;
+}
+
+.footer-pull-child{
+  text-decoration: none;
+  font-size: 10px;
+  color: #272727;
+  font-weight: bold;
+}
+
+
 .footer-link {
   color: #FFF;
   font-size: 12px;
-  line-height: 30px;
+  line-height: 10px;
 }
 
 .logo-white {

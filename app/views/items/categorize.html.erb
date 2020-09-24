@@ -2,8 +2,10 @@
 <div class='main'>
   <%# 商品一覧 %>
   <div class='item-contents'>
-    <% unless @item == nil %>
-    <h2 class='title'><%= @item.category.name %></h2>
+    <% if @item != nil %>
+      <h2 class='title'><%= @item.category.name %></h2>
+    <% else %>
+      <h2 class='title'>出品商品がありません</h2>
     <% end %>
     <ul class='item-lists'>
 

@@ -101,8 +101,8 @@
   height: 100%;
 }
 
-.pull-down li :hover{
-  opacity: 0.3;
+.pull-down :hover{
+  opacity: 0.5;
 }
 
 .category-list {
@@ -110,6 +110,12 @@
   margin-right: 3vw;
   color: #333333;
 }
+
+.lists-left :hover{
+  cursor: hand;
+  cursor: pointer;
+}
+
 
 .brand-list {
   text-decoration: none;

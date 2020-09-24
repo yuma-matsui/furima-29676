@@ -12,6 +12,7 @@ require("../card")
 require("../preview")
 require("../menu_bar")
 require("../pull_down")
+require("../footer_pull")
 
 
 

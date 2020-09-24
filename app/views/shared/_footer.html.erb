@@ -27,13 +27,27 @@
     <div class='furima-details'>
       <h2 class='footer-content-head'>FURIMAを見る</h2>
       <ul>
-        <li><%= link_to 'カテゴリー一覧', "#", class: "footer-link" %></li>
         <li><%= link_to 'ブランド一覧', "#", class: "footer-link" %></li>
+        <li class="footer-link", id="footer-pull-btn">カテゴリー一覧</li>
+        <div class="footer-pull-down", id="footer-pull-down">
+          <ul class="footer-pull-parent">
+            <li><%= link_to 'レディース', categorize_items_path(category_id: 2), class: "footer-pull-child" %></li>
+            <li><%= link_to 'メンズ', categorize_items_path(category_id: 3), class: "footer-pull-child" %></li>
+            <li><%= link_to 'ベビー・キッズ', categorize_items_path(category_id: 4), class: "footer-pull-child" %></li>
+            <li><%= link_to 'インテリア・住まい・小物', categorize_items_path(category_id: 5), class: "footer-pull-child" %></li>
+            <li><%= link_to '本・音楽・ゲーム', categorize_items_path(category_id: 6), class: "footer-pull-child" %></li>
+            <li><%= link_to 'おもちゃ・ホビー・グッズ', categorize_items_path(category_id: 7), class: "footer-pull-child" %></li>
+            <li><%= link_to '家電・スマホ・カメラ', categorize_items_path(category_id: 8), class: "footer-pull-child" %></li>
+            <li><%= link_to 'スポーツ・レジャー', categorize_items_path(category_id: 9), class: "footer-pull-child" %></li>
+            <li><%= link_to 'ハンドメイド', categorize_items_path(category_id: 10), class: "footer-pull-child" %></li>
+            <li><%= link_to 'その他', categorize_items_path(category_id: 11), class: "footer-pull-child" %></li>
+          </ul>
+        </div>
       </ul>
     </div>
     <div class='furima-details'>
       <h2 class='footer-content-head'>FURIMAについて</h2>
-      <ul>
+            <ul class="footer-list">
         <li><%= link_to 'FURIMAガイド', "#", class: "footer-link" %></li>
         <li><%= link_to 'FURIMAロゴ利用ガイドライン', "#", class: "footer-link" %></li>
         <li><%= link_to 'お知らせ', "#", class: "footer-link" %></li>
