@@ -259,3 +259,8 @@
 .commment-content{
   display: flex;
 }
+
+.user-link{
+  text-decoration: none;
+  color: black;
+}
