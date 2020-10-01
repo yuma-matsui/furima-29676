@@ -1,5 +1,4 @@
 class FavoritesController < ApplicationController
-  # before_action :item_find, only: [:create, :destroy]
 
   def index
     @favorites = current_user.favorites.includes(:user, :item).order(created_at: :desc)
@@ -12,7 +11,9 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    current_user.favorites.find_by(item_id: params[:item_id]).destroy!    
+    favorite = current_user.favorites.find_by(item_id: params[:item_id]).destroy!
     redirect_to item_path(params[:item_id])
   end
+
+
 end
