@@ -15,5 +15,4 @@ class FavoritesController < ApplicationController
     redirect_to item_path(params[:item_id])
   end
 
-
 end
